@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akoonet – Projets Home Assistant</title>
-<meta name="description" content="Intégrations et cartes Home Assistant par Akoonet, toutes disponibles sur HACS / Marketplace.">
+<meta name="description" content="Intégrations et cartes Home Assistant par Akoonet, toutes installables via HACS / Marketplace.">
 <meta name="theme-color" content="#0f1115">
 <link rel="icon" href="https://raw.githubusercontent.com/akoonet-homeassistant/domogotchi/main/custom_components/domogotchi/brand/icon.png">
 <style>
@@ -89,6 +89,12 @@ section.cat h2 small{font-size:14px;color:var(--faint);font-weight:500}
 .desc{color:var(--muted);margin:0;font-size:15px}
 .note{font-size:13px;color:var(--faint);margin:0}
 .note a{color:var(--muted)}
+.legend{display:flex;align-items:center;gap:8px;margin-top:12px}
+.hacs{font:600 12px var(--font);padding:2px 9px;border-radius:6px;white-space:nowrap;flex:none}
+.hacs.def{background:var(--accent-bg);color:var(--accent-text)}
+.hacs.cus{background:#fff1e0;color:#a14b00}
+:root[data-theme="dark"] .hacs.cus{background:#3a2410;color:#ffb36b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hacs.cus{background:#3a2410;color:#ffb36b}}
 .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto;padding-top:6px}
 .meta img{height:20px}
 .chip{font:12px var(--mono);color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:1px 7px}
@@ -142,14 +148,14 @@ footer a{color:var(--muted)}
 <main id="main">
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow" data-i18n="eyebrow">Toutes sur HACS / Marketplace</span>
+      <span class="eyebrow" data-i18n="eyebrow">Toutes installables via HACS / Marketplace</span>
       <h1 data-i18n="h1">Projets Home Assistant</h1>
       <p class="sub" data-i18n="sub">Intégrations et cartes Lovelace par Akoonet</p>
-      <p class="lead" data-i18n="lead">Des intégrations configurables depuis l'interface, documentées en français et en anglais, testées avant chaque version. Volets, éclairage, chauffage… et une créature-maison à faire vivre.</p>
+      <p class="lead" data-i18n="lead">Des intégrations configurables depuis l'interface, documentées en français et en anglais, testées avant chaque version. Volets, éclairage, chauffage, alarme… et une créature-maison à faire vivre.</p>
       <div class="stats">
-        <div class="stat"><b>5</b><span data-i18n="statInt">intégrations</span></div>
-        <div class="stat"><b>4</b><span data-i18n="statCards">cartes Lovelace</span></div>
-        <div class="stat"><b>5/5</b><span data-i18n="statHacs">dans HACS / Marketplace</span></div>
+        <div class="stat"><b>6</b><span data-i18n="statInt">intégrations</span></div>
+        <div class="stat"><b>5</b><span data-i18n="statCards">cartes Lovelace</span></div>
+        <div class="stat"><b>5 + 1</b><span data-i18n="statHacs">HACS Default + Custom</span></div>
         <div class="stat"><b>FR · EN</b><span data-i18n="statLang">documentation</span></div>
       </div>
     </div>
@@ -159,10 +165,11 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="row">
         <div class="tabs" role="group" aria-label="Catégories">
-          <button class="tab" data-filter="all" aria-pressed="true"><span data-i18n="tabAll">Tous</span><small>5</small></button>
+          <button class="tab" data-filter="all" aria-pressed="true"><span data-i18n="tabAll">Tous</span><small>6</small></button>
           <button class="tab" data-filter="volets" aria-pressed="false"><span data-i18n="catVolets">Volets</span><small>2</small></button>
           <button class="tab" data-filter="lumieres" aria-pressed="false"><span data-i18n="catLights">Éclairage et présence</span><small>1</small></button>
           <button class="tab" data-filter="chauffage" aria-pressed="false"><span data-i18n="catHeat">Chauffage</span><small>1</small></button>
+          <button class="tab" data-filter="alarme" aria-pressed="false"><span data-i18n="catAlarm">Alarme</span><small>1</small></button>
           <button class="tab" data-filter="loisirs" aria-pressed="false"><span data-i18n="catFun">Loisirs</span><small>1</small></button>
         </div>
         <label class="search">
@@ -185,7 +192,7 @@ footer a{color:var(--muted)}
             </div>
             <p class="desc" data-i18n="dVolets">Protège la maison de la chaleur en pilotant les volets selon le soleil, les températures et l'activité des habitants, avec un panneau de gestion graphique. Aucun YAML à écrire.</p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=volets_intelligents&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/volets_intelligents?label=&amp;color=41BDF5"><span class="chip">HA 2026.3.0+</span></div>
+            <div class="meta"><span class="hacs def">HACS Default</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/volets_intelligents?label=&amp;color=41BDF5"><span class="chip">HA 2026.3.0+</span></div>
           </div>
         </article>
 
@@ -199,7 +206,7 @@ footer a{color:var(--muted)}
             <p class="desc" data-i18n="dCalyps">Pilote les volets roulants Profalux Neosol 868 via le cloud Calyps'HOME / Avidsen, avec les identifiants de l'application mobile. La position est estimée par minuterie.</p>
             <p class="note" data-i18n="nCalyps">Fonctionne avec Volets Intelligents.</p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=Calypshome-ha&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/Calypshome-ha?label=&amp;color=41BDF5"><span class="chip">HA 2024.11.0+</span></div>
+            <div class="meta"><span class="hacs def">HACS Default</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/Calypshome-ha?label=&amp;color=41BDF5"><span class="chip">HA 2024.11.0+</span></div>
           </div>
         </article>
 
@@ -212,7 +219,7 @@ footer a{color:var(--muted)}
             </div>
             <p class="desc" data-i18n="dLights">Simulation de présence : quand la maison est vide, allume et éteint vos lampes au hasard le soir et le matin. Déclenchement par l'alarme ou par l'absence des personnes.</p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=lights_simulator&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/lights_simulator?label=&amp;color=41BDF5"><span class="chip">HA 2024.12.0+</span></div>
+            <div class="meta"><span class="hacs def">HACS Default</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/lights_simulator?label=&amp;color=41BDF5"><span class="chip">HA 2024.12.0+</span></div>
           </div>
         </article>
 
@@ -229,7 +236,21 @@ footer a{color:var(--muted)}
             <p class="desc" data-i18n="dEdil">Programmation et pilotage d'un poêle à granulés Edilkamin commandé par un ESP32 en Bluetooth / MQTT, avec planning de secours si Home Assistant s'arrête.</p>
             <p class="note"><span data-i18n="nEdil">Firmware ESP32 en un clic :</span> <a href="https://akoonet-homeassistant.github.io/edilkamin_control/webflash/" data-i18n="nEdilLink">page du firmware</a></p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=edilkamin_control&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/edilkamin_control?label=&amp;color=41BDF5"><span class="chip">HA 2024.11.0+</span></div>
+            <div class="meta"><span class="hacs def">HACS Default</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/edilkamin_control?label=&amp;color=41BDF5"><span class="chip">HA 2024.11.0+</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="alarme" data-text="protocole alarme alarm armement désarmement arming disarming sécurité security intrusion fenêtre window garage volets shutters">
+          <div class="shot"><img alt="" src="https://raw.githubusercontent.com/akoonet-homeassistant/protocole_alarme/main/docs/screenshots/carte.png"></div>
+          <div class="body">
+            <div class="head">
+              <img src="https://raw.githubusercontent.com/akoonet-homeassistant/protocole_alarme/main/custom_components/protocole_alarme/brand/icon.png" alt="">
+              <div><span class="cat-label" data-i18n="catAlarm">Alarme</span> <span class="type" data-i18n="typeBoth">Intégration + carte</span><h3><a href="https://github.com/akoonet-homeassistant/protocole_alarme">Protocole Alarme</a></h3></div>
+            </div>
+            <p class="desc" data-i18n="dAlarm">Exécute des actions à l'armement et au désarmement de l'alarme, entité par entité : fermer un volet si une fenêtre est ouverte, fermer le garage, éteindre les lumières, lancer la simulation de présence, déclencher l'alarme en cas d'intrusion.</p>
+            <p class="note" data-i18n="nAlarm">Assistant en 3 étapes, vérification du résultat, carte pour armer / désarmer.</p>
+            <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=protocole_alarme&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
+            <div class="meta"><span class="hacs cus">HACS Custom</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/protocole_alarme?label=&amp;color=41BDF5"><span class="chip">HA 2024.12.0+</span></div>
           </div>
         </article>
 
@@ -245,11 +266,14 @@ footer a{color:var(--muted)}
             </div>
             <p class="desc" data-i18n="dDomo">Une créature-maison façon Tamagotchi sur écran LCD rétro : elle a faim, joue, grandit et réagit à la vraie maison (lumières, température, présence, consommation, météo).</p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=domogotchi&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/domogotchi?label=&amp;color=41BDF5"><span class="chip">HA 2025.1.0+</span></div>
+            <div class="meta"><span class="hacs def">HACS Default</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/domogotchi?label=&amp;color=41BDF5"><span class="chip">HA 2025.1.0+</span></div>
           </div>
         </article>
       </div>
     </section>
+
+    <p class="note legend"><span class="hacs def">HACS Default</span> <span data-i18n="legDefault">dans les dépôts HACS / Marketplace par défaut : recherchez-le par son nom.</span></p>
+    <p class="note legend"><span class="hacs cus">HACS Custom</span> <span data-i18n="legCustom">pas encore dans la liste par défaut : le bouton « Ajouter via HACS / Marketplace » propose de l'ajouter comme dépôt personnalisé, en un clic.</span></p>
 
     <p class="empty" id="empty" data-i18n="empty">Aucun projet ne correspond à cette recherche.</p>
 
@@ -296,12 +320,12 @@ footer a{color:var(--muted)}
 <script>
 (function () {
   var EN = {
-    skip: "Skip to content", site: "Website", eyebrow: "All on HACS / Marketplace",
+    skip: "Skip to content", site: "Website", eyebrow: "All installable through HACS / Marketplace",
     h1: "Home Assistant projects", sub: "Integrations and Lovelace cards by Akoonet",
-    lead: "Integrations configured from the UI, documented in French and English, tested before every release. Shutters, lighting, heating… and a house creature to look after.",
-    statInt: "integrations", statCards: "Lovelace cards", statHacs: "on HACS / Marketplace", statLang: "documentation",
+    lead: "Integrations configured from the UI, documented in French and English, tested before every release. Shutters, lighting, heating, alarm… and a house creature to look after.",
+    statInt: "integrations", statCards: "Lovelace cards", statHacs: "HACS Default + Custom", statLang: "documentation",
     tabAll: "All", search: "Search a project",
-    catVolets: "Shutters", catLights: "Lighting and presence", catHeat: "Heating", catFun: "Fun",
+    catVolets: "Shutters", catLights: "Lighting and presence", catHeat: "Heating", catAlarm: "Alarm", catFun: "Fun",
     typeBoth: "Integration + card", typeInt: "Integration", add: "Add via HACS / Marketplace",
     dVolets: "Protects your home from the heat by driving shutters from the sun, temperatures and occupants' activity, with a graphical management panel. No YAML to write.",
     dCalyps: "Controls Profalux Neosol 868 roller shutters through the Calyps'HOME / Avidsen cloud, with the mobile app credentials. Position is estimated by timing.",
@@ -309,6 +333,10 @@ footer a{color:var(--muted)}
     dLights: "Presence simulation: when the house is empty, it randomly switches your lamps on and off in the evening and morning. Triggered by the alarm or by people being away.",
     dEdil: "Scheduling and control of an Edilkamin pellet stove driven by an ESP32 over Bluetooth / MQTT, with a backup schedule if Home Assistant stops.",
     nEdil: "One-click ESP32 firmware:", nEdilLink: "firmware page",
+    dAlarm: "Runs actions when the alarm is armed or disarmed, entity by entity: close a shutter if a window is open, close the garage, turn lights off, start presence simulation, trigger the alarm on intrusion.",
+    nAlarm: "3-step wizard, result check, card to arm / disarm.",
+    legDefault: "in the HACS / Marketplace default repositories: just search for its name.",
+    legCustom: "not in the default list yet: the “Add via HACS / Marketplace” button offers to add it as a custom repository, in one click.",
     dDomo: "A Tamagotchi-style house creature on a retro LCD screen: it gets hungry, plays, grows up and reacts to your real home (lights, temperature, presence, power use, weather).",
     empty: "No project matches this search.", behind: "Behind the projects",
     madeTitle: "Made in France", made1: "Built and tested on a real Home Assistant install.", made2: "Documentation in French first, then English.", made3: "Free and open source projects, maintained in my spare time.",

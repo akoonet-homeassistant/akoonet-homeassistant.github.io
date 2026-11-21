@@ -93,6 +93,7 @@ section.cat h2 small{font-size:14px;color:var(--faint);font-weight:500}
 .hacs{font:600 12px var(--font);padding:2px 9px;border-radius:6px;white-space:nowrap;flex:none}
 .hacs.def{background:var(--accent-bg);color:var(--accent-text)}
 .hacs.cus{background:#fff1e0;color:#a14b00}
+.hacs.att{background:transparent;color:var(--muted);border:1px dashed currentColor;font-weight:500}
 :root[data-theme="dark"] .hacs.cus{background:#3a2410;color:#ffb36b}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hacs.cus{background:#3a2410;color:#ffb36b}}
 .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto;padding-top:6px}
@@ -151,11 +152,11 @@ footer a{color:var(--muted)}
       <span class="eyebrow" data-i18n="eyebrow">Toutes installables via HACS / Marketplace</span>
       <h1 data-i18n="h1">Projets Home Assistant</h1>
       <p class="sub" data-i18n="sub">Intégrations et cartes Lovelace par Akoonet</p>
-      <p class="lead" data-i18n="lead">Des intégrations configurables depuis l'interface, documentées en français et en anglais, testées avant chaque version. Volets, éclairage, chauffage, alarme… et une créature-maison à faire vivre.</p>
+      <p class="lead" data-i18n="lead">Des intégrations configurables depuis l'interface, documentées en français et en anglais, testées avant chaque version. Volets, éclairage, chauffage, alarme, carburant… et une créature-maison à faire vivre.</p>
       <div class="stats">
         <div class="stat"><b>6</b><span data-i18n="statInt">intégrations</span></div>
-        <div class="stat"><b>5</b><span data-i18n="statCards">cartes Lovelace</span></div>
-        <div class="stat"><b>5 + 1</b><span data-i18n="statHacs">HACS Default + Custom</span></div>
+        <div class="stat"><b>6</b><span data-i18n="statCards">cartes Lovelace</span></div>
+        <div class="stat"><b>5 + 2</b><span data-i18n="statHacs">HACS Default + Custom</span></div>
         <div class="stat"><b>FR · EN</b><span data-i18n="statLang">documentation</span></div>
       </div>
     </div>
@@ -165,11 +166,12 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="row">
         <div class="tabs" role="group" aria-label="Catégories">
-          <button class="tab" data-filter="all" aria-pressed="true"><span data-i18n="tabAll">Tous</span><small>6</small></button>
+          <button class="tab" data-filter="all" aria-pressed="true"><span data-i18n="tabAll">Tous</span><small>7</small></button>
           <button class="tab" data-filter="volets" aria-pressed="false"><span data-i18n="catVolets">Volets</span><small>2</small></button>
           <button class="tab" data-filter="lumieres" aria-pressed="false"><span data-i18n="catLights">Éclairage et présence</span><small>1</small></button>
           <button class="tab" data-filter="chauffage" aria-pressed="false"><span data-i18n="catHeat">Chauffage</span><small>1</small></button>
           <button class="tab" data-filter="alarme" aria-pressed="false"><span data-i18n="catAlarm">Alarme</span><small>1</small></button>
+          <button class="tab" data-filter="voiture" aria-pressed="false"><span data-i18n="catCar">Voiture</span><small>1</small></button>
           <button class="tab" data-filter="loisirs" aria-pressed="false"><span data-i18n="catFun">Loisirs</span><small>1</small></button>
         </div>
         <label class="search">
@@ -247,10 +249,27 @@ footer a{color:var(--muted)}
               <img src="https://raw.githubusercontent.com/akoonet-homeassistant/protocole_alarme/main/custom_components/protocole_alarme/brand/icon.png" alt="">
               <div><span class="cat-label" data-i18n="catAlarm">Alarme</span> <span class="type" data-i18n="typeBoth">Intégration + carte</span><h3><a href="https://github.com/akoonet-homeassistant/protocole_alarme">Protocole Alarme</a></h3></div>
             </div>
-            <p class="desc" data-i18n="dAlarm">Exécute des actions à l'armement et au désarmement de l'alarme, entité par entité : fermer un volet si une fenêtre est ouverte, fermer le garage, éteindre les lumières, lancer la simulation de présence, déclencher l'alarme en cas d'intrusion.</p>
+            <p class="desc" data-i18n="dAlarm">Exécute des actions à l'armement et au désarmement de l'alarme, entité par entité : fermer un volet si une fenêtre est ouverte, fermer le garage, éteindre les lumières, lancer la simulation de présence, déclencher l'alarme en cas d'intrusion, puis remettre l'état d'origine au désarmement.</p>
             <p class="note" data-i18n="nAlarm">Assistant en 3 étapes, vérification du résultat, carte pour armer / désarmer.</p>
             <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=protocole_alarme&amp;category=integration" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
-            <div class="meta"><span class="hacs cus">HACS Custom</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/protocole_alarme?label=&amp;color=41BDF5"><span class="chip">HA 2024.12.0+</span></div>
+            <div class="meta"><span class="hacs cus">HACS Custom</span><span class="hacs att" data-i18n="hacsPending">HACS Default en cours</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/protocole_alarme?label=&amp;color=41BDF5"><span class="chip">HA 2024.12.0+</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="voiture" data-text="fuel map card carburant essence gazole diesel e10 sp95 sp98 e85 gpl station service prix carburant voiture car 3008 carte map">
+          <div class="shot">
+            <img alt="" class="has-dark" data-src-fr="https://raw.githubusercontent.com/akoonet-homeassistant/Fuel-Map-Card/main/docs/screenshots/card-fr.png" data-src-en="https://raw.githubusercontent.com/akoonet-homeassistant/Fuel-Map-Card/main/docs/screenshots/card-en.png">
+            <img alt="" class="dark" src="https://raw.githubusercontent.com/akoonet-homeassistant/Fuel-Map-Card/main/docs/screenshots/card-dark-fr.png">
+          </div>
+          <div class="body">
+            <div class="head">
+              <img src="https://raw.githubusercontent.com/akoonet-homeassistant/Fuel-Map-Card/main/docs/icon.png" alt="">
+              <div><span class="cat-label" data-i18n="catCar">Voiture</span> <span class="type" data-i18n="typeCard">Carte</span><h3><a href="https://github.com/akoonet-homeassistant/Fuel-Map-Card">Fuel Map Card</a></h3></div>
+            </div>
+            <p class="desc" data-i18n="dFuel">Les stations-service autour de la voiture, sur une carte et dans une liste : prix, distance, date de mise à jour, la moins chère en vert. Un clic sur une station centre la carte dessus.</p>
+            <p class="note" data-i18n="nFuel">Nécessite l'intégration Prix Carburant (France).</p>
+            <div class="actions"><a class="btn primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=akoonet-homeassistant&amp;repository=Fuel-Map-Card&amp;category=plugin" data-i18n="add">Ajouter via HACS / Marketplace</a></div>
+            <div class="meta"><span class="hacs cus">HACS Custom</span><img alt="release" src="https://img.shields.io/github/v/release/akoonet-homeassistant/Fuel-Map-Card?label=&amp;color=41BDF5"><span class="chip">HA 2024.1.0+</span></div>
           </div>
         </article>
 
@@ -273,7 +292,7 @@ footer a{color:var(--muted)}
     </section>
 
     <p class="note legend"><span class="hacs def">HACS Default</span> <span data-i18n="legDefault">dans les dépôts HACS / Marketplace par défaut : recherchez-le par son nom.</span></p>
-    <p class="note legend"><span class="hacs cus">HACS Custom</span> <span data-i18n="legCustom">pas encore dans la liste par défaut : le bouton « Ajouter via HACS / Marketplace » propose de l'ajouter comme dépôt personnalisé, en un clic.</span></p>
+    <p class="note legend"><span class="hacs cus">HACS Custom</span> <span data-i18n="legCustom">pas encore dans la liste par défaut : le bouton « Ajouter via HACS / Marketplace » propose de l'ajouter comme dépôt personnalisé (catégorie Intégration, ou Tableau de bord pour une carte), en un clic.</span></p>
 
     <p class="empty" id="empty" data-i18n="empty">Aucun projet ne correspond à cette recherche.</p>
 
@@ -322,21 +341,23 @@ footer a{color:var(--muted)}
   var EN = {
     skip: "Skip to content", site: "Website", eyebrow: "All installable through HACS / Marketplace",
     h1: "Home Assistant projects", sub: "Integrations and Lovelace cards by Akoonet",
-    lead: "Integrations configured from the UI, documented in French and English, tested before every release. Shutters, lighting, heating, alarm… and a house creature to look after.",
+    lead: "Integrations configured from the UI, documented in French and English, tested before every release. Shutters, lighting, heating, alarm, fuel… and a house creature to look after.",
     statInt: "integrations", statCards: "Lovelace cards", statHacs: "HACS Default + Custom", statLang: "documentation",
     tabAll: "All", search: "Search a project",
-    catVolets: "Shutters", catLights: "Lighting and presence", catHeat: "Heating", catAlarm: "Alarm", catFun: "Fun",
-    typeBoth: "Integration + card", typeInt: "Integration", add: "Add via HACS / Marketplace",
+    catVolets: "Shutters", catLights: "Lighting and presence", catHeat: "Heating", catAlarm: "Alarm", catCar: "Car", catFun: "Fun",
+    typeBoth: "Integration + card", typeInt: "Integration", typeCard: "Card", hacsPending: "HACS Default pending", add: "Add via HACS / Marketplace",
     dVolets: "Protects your home from the heat by driving shutters from the sun, temperatures and occupants' activity, with a graphical management panel. No YAML to write.",
     dCalyps: "Controls Profalux Neosol 868 roller shutters through the Calyps'HOME / Avidsen cloud, with the mobile app credentials. Position is estimated by timing.",
     nCalyps: "Works with Volets Intelligents.",
     dLights: "Presence simulation: when the house is empty, it randomly switches your lamps on and off in the evening and morning. Triggered by the alarm or by people being away.",
     dEdil: "Scheduling and control of an Edilkamin pellet stove driven by an ESP32 over Bluetooth / MQTT, with a backup schedule if Home Assistant stops.",
     nEdil: "One-click ESP32 firmware:", nEdilLink: "firmware page",
-    dAlarm: "Runs actions when the alarm is armed or disarmed, entity by entity: close a shutter if a window is open, close the garage, turn lights off, start presence simulation, trigger the alarm on intrusion.",
+    dAlarm: "Runs actions when the alarm is armed or disarmed, entity by entity: close a shutter if a window is open, close the garage, turn lights off, start presence simulation, trigger the alarm on intrusion, then restore the original state on disarming.",
     nAlarm: "3-step wizard, result check, card to arm / disarm.",
     legDefault: "in the HACS / Marketplace default repositories: just search for its name.",
-    legCustom: "not in the default list yet: the “Add via HACS / Marketplace” button offers to add it as a custom repository, in one click.",
+    legCustom: "not in the default list yet: the “Add via HACS / Marketplace” button offers to add it as a custom repository (Integration category, or Dashboard for a card), in one click.",
+    dFuel: "Fuel stations around your car, on a map and in a list: price, distance, last update, cheapest in green. Click a station to centre the map on it.",
+    nFuel: "Requires the Prix Carburant integration (France).",
     dDomo: "A Tamagotchi-style house creature on a retro LCD screen: it gets hungry, plays, grows up and reacts to your real home (lights, temperature, presence, power use, weather).",
     empty: "No project matches this search.", behind: "Behind the projects",
     madeTitle: "Made in France", made1: "Built and tested on a real Home Assistant install.", made2: "Documentation in French first, then English.", made3: "Free and open source projects, maintained in my spare time.",
